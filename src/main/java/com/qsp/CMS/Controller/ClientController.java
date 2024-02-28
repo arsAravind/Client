@@ -27,51 +27,44 @@ import com.qsp.CMS.Service.ClientService;
 public class ClientController {
 	@Autowired
 	ClientService clientService;
-	
+
 	@PostMapping("/save")
-<<<<<<< HEAD
-	public ResponseEntity<?> saveClient(@RequestBody Client client) //hgh
-=======
-	public ResponseEntity<?> saveClient(@RequestBody Client client) //changes hh
->>>>>>> branch 'master' of https://github.com/arsAravind/Client.git
+
+	public ResponseEntity<?> saveClient(@RequestBody Client client) // hgh
+
 	{
-		ResponseStructure<Client> s= clientService.saveClient(client);
-		return new ResponseEntity<>(s,HttpStatus.OK);
+		ResponseStructure<Client> s = clientService.saveClient(client);
+		return new ResponseEntity<>(s, HttpStatus.OK);
 	}
-	
-	
+
 	@GetMapping("/fetchAll")
-	public List<Client> fetchAll()
-	{
-		List<Client> clients=clientService.fetchAll();
+	public List<Client> fetchAll() {
+		List<Client> clients = clientService.fetchAll();
 		return clients;
 	}
-	
+
 	@GetMapping("/fetchOne/{id}")
-	public Client fetchOne(@PathVariable int id) throws IdNotFoundException
-	{
-		Client client=clientService.fetchOne(id);
+	public Client fetchOne(@PathVariable int id) throws IdNotFoundException {
+		Client client = clientService.fetchOne(id);
 		return client;
 	}
 
 	@PutMapping("/update/{id}")
-	public Client update(@PathVariable int id, @RequestBody Client client) throws IdNotFoundException
-	{
-		Client c=clientService.updateClient(id,client);
+	public Client update(@PathVariable int id, @RequestBody Client client) throws IdNotFoundException {
+		Client c = clientService.updateClient(id, client);
 		return c;
 	}
-	
+
 	@DeleteMapping("/delete/{id}")
-	public String delete(@PathVariable int id) throws IdNotFoundException
-	{
-		String s=clientService.deleteClient(id);
+	public String delete(@PathVariable int id) throws IdNotFoundException {
+		String s = clientService.deleteClient(id);
 		return s;
 	}
-	
+
 	@GetMapping("/loginViaEmail")
-	public String loginEmail(@RequestParam String email, String password) throws PasswordInvalid, EmailNotValidException
-	{
-		String s=clientService.loginEmail(email,password);
+	public String loginEmail(@RequestParam String email, String password)
+			throws PasswordInvalid, EmailNotValidException {
+		String s = clientService.loginEmail(email, password);
 		return s;
 	}
 }
