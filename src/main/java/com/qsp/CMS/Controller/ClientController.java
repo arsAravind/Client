@@ -29,7 +29,11 @@ public class ClientController {
 	ClientService clientService;
 	
 	@PostMapping("/save")
+<<<<<<< HEAD
 	public ResponseEntity<?> saveClient(@RequestBody Client client) //hgh
+=======
+	public ResponseEntity<?> saveClient(@RequestBody Client client) //changes hh
+>>>>>>> branch 'master' of https://github.com/arsAravind/Client.git
 	{
 		ResponseStructure<Client> s= clientService.saveClient(client);
 		return new ResponseEntity<>(s,HttpStatus.OK);
